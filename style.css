@@ -70,22 +70,15 @@ body {
     align-items: center;
     justify-content: start;
     text-decoration: none;
+    text-align: start;
     color: white;
     font-weight: 800;
-    /* font-extrabold */
     padding: 1rem 1.5rem;
-    /* py-4 px-6 */
     border-radius: 0.75rem;
-    /* rounded-xl */
     font-size: 1.25rem;
-    /* text-lg */
     box-shadow: 0 10px 15px rgba(0, 0, 0, 0.5);
-    /* Базовая тень */
     border: 1px solid transparent;
     background: linear-gradient(to right, #0891B2, #2563EB);
-    /* cyan-600 to blue-600 */
-
-    /* Переходы для неонового эффекта */
     transition: transform 0.3s ease-out, box-shadow 0.3s ease-out, border-color 0.3s ease-out;
 }
 
@@ -98,12 +91,6 @@ body {
 }
 
 
-/* 7. Иконки внутри кнопок */
-.redirect-button svg {
-    height: 1.5rem;
-    width: 1.5rem;
-    margin-right: 0.75rem;
-}
 
 /* 8. Нижний колонтитул */
 .footer {
