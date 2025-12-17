@@ -55,46 +55,29 @@
         .redirect-button {
             display: flex;
             align-items: center;
-            justify-content: center;
+            justify-content: start;
             text-decoration: none;
             color: white;
             font-weight: 800; /* font-extrabold */
             padding: 1rem 1.5rem; /* py-4 px-6 */
             border-radius: 0.75rem; /* rounded-xl */
-            font-size: 1.125rem; /* text-lg */
+            font-size: 1.25rem; /* text-lg */
             box-shadow: 0 10px 15px rgba(0, 0, 0, 0.5); /* Базовая тень */
             border: 1px solid transparent;
+            background: linear-gradient(to right, #0891B2, #2563EB); /* cyan-600 to blue-600 */
             
             /* Переходы для неонового эффекта */
             transition: transform 0.3s ease-out, box-shadow 0.3s ease-out, border-color 0.3s ease-out;
         }
         
-        /* 5.1. Сине-Голубой Градиент */
-        .redirect-button:nth-child(even) {
-            background: linear-gradient(to right, #C026D3, #DB2777); /* fuchsia-600 to pink-600 */
-        }
-
-        /* 5.2. Маджента-Розовый Градиент */
-        .redirect-button:nth-child(odd) {
-            background: linear-gradient(to right, #0891B2, #2563EB); /* cyan-600 to blue-600 */
-        }
 
         /* 6. Эффекты при наведении (Неоновое свечение) */
         .redirect-button:hover {
             transform: translateY(-3px) scale(1.02);
-        }
-
-        /* 6.1. Неоновое свечение для Сине-Голубых */
-        .redirect-button:nth-child(odd):hover {
             box-shadow: 0 0 20px rgba(0, 255, 255, 0.7), 0 0 5px rgba(0, 255, 255, 0.4);
             border-color: rgba(0, 255, 255, 0.5);
         }
-        
-        /* 6.2. Неоновое свечение для Маджента-Розовых */
-        .redirect-button:nth-child(even):hover {
-            box-shadow: 0 0 20px rgba(255, 0, 255, 0.7), 0 0 5px rgba(255, 0, 255, 0.4);
-            border-color: rgba(255, 0, 255, 0.5);
-        }
+
 
         /* 7. Иконки внутри кнопок */
         .redirect-button svg {
