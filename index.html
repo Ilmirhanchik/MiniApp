@@ -8,67 +8,147 @@
     <link rel="stylesheet" href="style.css">
 </head>
 
-<body>
+<body class="p-4 sm:p-8">
 
     <div class="container">
 
         <!-- Заголовок и описание -->
         <header class="header">
             <h1>
-                Министерство образования и науки Республики Северная Осетия-Алания
+                Министерство образования и науки
+                <span>Республики Северная Осетия-Алания</span>
             </h1>
             <p>
                 Список услуг:
             </p>
         </header>
 
-        <!-- Блок кнопок-ссылок -->
+        <!-- Блок кнопок-услуг -->
         <div class="button-group">
 
-
-            <a href="https://www.gosuslugi.ru/600470/1/form" target="_blank" rel="noopener noreferrer"
-                class="redirect-button">
-
+            <!-- Кнопки с data-атрибутами для описания и ссылки -->
+            <button class="redirect-button"
+                data-title="Запись в школу"
+                data-description="Подача заявления на зачисление ребенка в 1-й класс или перевод в другую школу в течение учебного года. Предоставляется в электронном виде."
+                data-link="https://www.gosuslugi.ru/600470/1/form">
                 Запись и перевод в новую школу
-            </a>
-            <a href="https://www.gosuslugi.ru/10171/1/form" target="_blank" rel="noopener noreferrer"
-                class="redirect-button">
+            </button>
 
+            <button class="redirect-button"
+                data-title="Поступление в колледж"
+                data-description="Прием заявлений на программы среднего профессионального образования (СПО) в колледжи, техникумы и училища."
+                data-link="https://www.gosuslugi.ru/10171/1/form">
                 Поступление в колледж
-            </a>
-            <a href="https://www.gosuslugi.ru/vuzonline" target="_blank" rel="noopener noreferrer"
-                class="redirect-button">
+            </button>
 
+            <button class="redirect-button"
+                data-title="Поступление в ВУЗ"
+                data-description="Сервис «Поступление в вуз онлайн» позволяет подать документы одновременно в несколько российских государственных и частных вузов."
+                data-link="https://www.gosuslugi.ru/vuzonline">
                 Поступление в ВУЗ
-            </a>
+            </button>
 
-            <a href="https://www.gosuslugi.ru/10171/1/form" target="_blank" rel="noopener noreferrer"
-                class="redirect-button">
-
+            <button class="redirect-button"
+                data-title="Электронный дневник"
+                data-description="Получение доступа к электронному дневнику школьника для просмотра расписания, оценок и домашнего задания."
+                data-link="https://www.gosuslugi.ru/10171/1/form">
                 Получение доступа к электронному дневнику
-            </a>
-            <a href="https://gosuslugi.ru/school" target="_blank" rel="noopener noreferrer" class="redirect-button">
+            </button>
 
+            <button class="redirect-button"
+                data-title="Госуслуги Моя школа"
+                data-description="Сервис, объединяющий цифровые образовательные ресурсы, предоставляющий доступ к онлайн-урокам, библиотеке и другим возможностям."
+                data-link="https://gosuslugi.ru/school">
                 Сервис "Госуслуги Моя школа"
-            </a>
-            <a href="https://www.gosuslugi.ru/600316/1/form" target="_blank" rel="noopener noreferrer"
-                class="redirect-button">
+            </button>
 
+            <button class="redirect-button"
+                data-title="Дополнительное образование"
+                data-description="Запись ребенка в кружки, секции и программы дополнительного образования (ДПО) при школах и других учреждениях."
+                data-link="https://www.gosuslugi.ru/600316/1/form">
                 Запись на программу дополнительного образования
-            </a>
-            <a href="https://www.gosuslugi.ru/futurecode" target="_blank" rel="noopener noreferrer"
-                class="redirect-button">
+            </button>
 
+            <button class="redirect-button"
+                data-title="Код будущего"
+                data-description="Проект для школьников 8–11 классов и студентов колледжей, позволяющий бесплатно изучить современные языки программирования."
+                data-link="https://www.gosuslugi.ru/futurecode">
                 Код будущего
-            </a>
-
+            </button>
 
 
         </div>
 
-
-
     </div>
+
+    <!-- Структура модального окна (Pop-up) -->
+    <div id="modal" class="modal">
+        <div class="modal-content">
+            <div class="header-row">
+                <h2 id="modal-title"></h2>
+                <span class="close-button" onclick="closeModal()">&times;</span>
+            </div>
+
+            <p id="modal-description"></p>
+
+            <a id="modal-link" href="#" target="_blank" rel="noopener noreferrer" class="gos-link">
+                Перейти на Госуслуги
+            </a>
+        </div>
+    </div>
+
+
+    <script>
+        // Инициализация переменных для элементов
+        const modal = document.getElementById("modal");
+        const modalContent = document.querySelector(".modal-content");
+        const mTitle = document.getElementById("modal-title");
+        const mDesc = document.getElementById("modal-description");
+        const mLink = document.getElementById("modal-link");
+        const buttons = document.querySelectorAll('.redirect-button');
+
+        // Функция открытия модального окна
+        function openModal(title, description, link) {
+            mTitle.innerText = title;
+            mDesc.innerText = description;
+            mLink.href = link;
+            modal.style.display = "flex";
+            
+            // Добавление слушателя для закрытия по Esc
+            document.addEventListener('keydown', handleEscape);
+        }
+
+        // Функция закрытия модального окна
+        function closeModal() {
+            modal.style.display = "none";
+            // Удаление слушателя по Esc при закрытии
+            document.removeEventListener('keydown', handleEscape);
+        }
+
+        // Обработчик нажатия Esc
+        function handleEscape(event) {
+            if (event.key === 'Escape') {
+                closeModal();
+            }
+        }
+
+        // 1. Настройка обработчиков для всех кнопок
+        buttons.forEach(button => {
+            button.addEventListener('click', () => {
+                const title = button.getAttribute('data-title');
+                const description = button.getAttribute('data-description');
+                const link = button.getAttribute('data-link');
+                openModal(title, description, link);
+            });
+        });
+
+        // 2. Закрытие при клике вне окна
+        window.onclick = (event) => {
+            if (event.target === modal) {
+                closeModal();
+            }
+        }
+    </script>
 </body>
 
 </html>
