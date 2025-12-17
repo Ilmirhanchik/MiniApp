@@ -138,7 +138,6 @@ body {
     /* Эффект размытия */
     overflow: auto;
     /* Важно для flex-контейнера */
-    display: flex;
     justify-content: center;
     align-items: flex-start;
     /* Чтобы контент начинался сверху */
