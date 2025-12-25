@@ -27,56 +27,56 @@
         <div class="button-group">
 
             <!-- Кнопки с data-атрибутами для описания и ссылки -->
-            <button class="redirect-button"
-                data-title="Запись в школу"
+            <button class="redirect-button" data-title="Обращение в министерство образования и науки РСО-Алании"
+                data-description="В связи со вступлением в силу с 30 марта 2025 г. Федерального закона от 28 декабря 2024 г. № 547-ФЗ «О внесении изменений в Федеральный закон «О порядке рассмотрения обращений граждан Российской Федерации», прием обращений граждан через Электронную приемную официального портала РСО-Алания приостановлен.
+
+В настоящее время подать обращение Вы можете в форме электронного документа через платформу обратной связи (ПОС) «Госуслуги. Решаем вместе» федеральной государственной информационной системы «Единый портал государственных и муниципальных услуг (функций)».."
+                data-link="https://www.gosuslugi.ru/help/obratitsya_v_pos">
+                Подать обращение
+            </button>
+            <button class="redirect-button" data-title="Запись в школу"
                 data-description="Подача заявления на зачисление ребенка в 1-й класс или перевод в другую школу в течение учебного года. Предоставляется в электронном виде."
                 data-link="https://www.gosuslugi.ru/600470/1/form">
                 Запись и перевод в новую школу
             </button>
 
-            <button class="redirect-button"
-                data-title="Поступление в колледж"
-                data-description="На данный момент прием заявлений на программы среднего профессионального образования (СПО) в колледжи, техникумы и училища. Новая приёмная кампания в колледжи начнётся в июне 2026 года"
+            <button class="redirect-button" data-title="Поступление в колледж"
+                data-description="Прием заявлений на программы среднего профессионального образования (СПО) в колледжи, техникумы и училища."
                 data-link="https://www.gosuslugi.ru/10171/1/form">
                 Поступление в колледж
             </button>
 
-            <button class="redirect-button"
-                data-title="Поступление в ВУЗ"
+            <button class="redirect-button" data-title="Поступление в ВУЗ"
                 data-description="Сервис «Поступление в вуз онлайн» позволяет подать документы одновременно в несколько российских государственных и частных вузов."
                 data-link="https://www.gosuslugi.ru/vuzonline">
                 Поступление в ВУЗ
             </button>
 
-            <button class="redirect-button"
-                data-title="Электронный дневник"
+            <button class="redirect-button" data-title="Электронный дневник"
                 data-description="Получение доступа к электронному дневнику школьника для просмотра расписания, оценок и домашнего задания."
                 data-link="https://www.gosuslugi.ru/10171/1/form">
                 Получение доступа к электронному дневнику
             </button>
 
-            <button class="redirect-button"
-                data-title="Госуслуги Моя школа"
+            <button class="redirect-button" data-title="Госуслуги Моя школа"
                 data-description="Сервис, объединяющий цифровые образовательные ресурсы, предоставляющий доступ к онлайн-урокам, библиотеке и другим возможностям."
                 data-link="https://gosuslugi.ru/school">
                 Сервис "Госуслуги Моя школа"
             </button>
 
-            <button class="redirect-button"
-                data-title="Дополнительное образование"
+            <button class="redirect-button" data-title="Дополнительное образование"
                 data-description="Запись ребенка в кружки, секции и программы дополнительного образования (ДПО) при школах и других учреждениях."
                 data-link="https://www.gosuslugi.ru/600316/1/form">
                 Запись на программу дополнительного образования
             </button>
 
-            <button class="redirect-button"
-                data-title="Код будущего"
+            <button class="redirect-button" data-title="Код будущего"
                 data-description="Проект для школьников 8–11 классов и студентов колледжей, позволяющий бесплатно изучить современные языки программирования."
                 data-link="https://www.gosuslugi.ru/futurecode">
                 Код будущего
             </button>
-            
- <button class="redirect-button" 
+
+            <button class="redirect-button" 
             data-title="Министерство образования и науки РСО-Алании" 
             data-description="Министр образования и науки Республики Северная Осетия-Алания&#10;
             Телефон:+7 (8672) 29-15-15 &#10;
@@ -85,6 +85,7 @@
                 data-image="39Afh9n44MZKLsxGRFdi1679579779.jpg">
                 Узнать больше на сайте Министерства образования и науки РСО-Алании
             </button>
+
 
         </div>
 
@@ -97,11 +98,11 @@
                 <h2 id="modal-title"></h2>
                 <span class="close-button" onclick="closeModal()">&times;</span>
             </div>
-
+            <img id="modal-img" src="" alt="" style="display:none; width:100%; border-radius:8px; margin-bottom:15px;">
             <p id="modal-description"></p>
 
             <a id="modal-link" href="#" target="_blank" rel="noopener noreferrer" class="gos-link">
-                Перейти на Госуслуги
+                Перейти на сайт
             </a>
         </div>
     </div>
@@ -115,14 +116,24 @@
         const mDesc = document.getElementById("modal-description");
         const mLink = document.getElementById("modal-link");
         const buttons = document.querySelectorAll('.redirect-button');
-
+        const mImg = document.getElementById("modal-img");
         // Функция открытия модального окна
-        function openModal(title, description, link) {
+        function openModal(title, description, link, image) {
             mTitle.innerText = title;
             mDesc.innerText = description;
             mLink.href = link;
+            mImg.href = image;
+
+            if (image) {
+                mImg.src = image;
+                mImg.style.display = "block";
+            } else {
+                mImg.style.display = "none";
+                mImg.src = "";
+            }
+
             modal.style.display = "flex";
-            
+
             // Добавление слушателя для закрытия по Esc
             document.addEventListener('keydown', handleEscape);
         }
@@ -142,15 +153,26 @@
         }
 
         // 1. Настройка обработчиков для всех кнопок
+        // buttons.forEach(button => {
+        //     button.addEventListener('click', () => {
+        //         const title = button.getAttribute('data-title');
+        //         const description = button.getAttribute('data-description');
+        //         const link = button.getAttribute('data-link');
+        //         const image = button.getAttribute('data-image');
+        //         openModal(title, description, link);
+        //     });
+        // });
+
         buttons.forEach(button => {
             button.addEventListener('click', () => {
-                const title = button.getAttribute('data-title');
-                const description = button.getAttribute('data-description');
-                const link = button.getAttribute('data-link');
-                openModal(title, description, link);
+                openModal(
+                    button.getAttribute('data-title'),
+                    button.getAttribute('data-description'),
+                    button.getAttribute('data-link'),
+                    button.getAttribute('data-image') // Добавьте этот параметр
+                );
             });
         });
-
         // 2. Закрытие при клике вне окна
         window.onclick = (event) => {
             if (event.target === modal) {
