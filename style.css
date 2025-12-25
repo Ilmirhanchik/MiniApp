@@ -128,6 +128,7 @@ body {
     justify-content: center;
     align-items: flex-start;
     /* Чтобы контент начинался сверху */
+    white-space: pre-line;
 }
 
 /* Контент модального окна */
@@ -221,6 +222,7 @@ body {
     /* shadow-md */
     text-decoration: none;
     transition: transform 0.2s, background-color 0.2s, box-shadow 0.2s;
+    white-space: nowrap;
 }
 
 .gos-link:hover {
